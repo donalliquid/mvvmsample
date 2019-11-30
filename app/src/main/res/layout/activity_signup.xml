@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.SignupActivity"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:background="#E2E2E2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Architecture your app with Kotlin"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="#465A61"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_account_box_black_24dp"
+            android:drawablePadding="7dp"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_round_gray_background"
+            android:hint="Name"/>
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_email_black_24dp"
+            android:drawablePadding="7dp"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_round_gray_background"
+            android:hint="Email"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="7dp"
+            android:background="@drawable/edit_text_round_gray_background"
+            android:layout_marginTop="7dp"
+            android:padding="12dp"
+            android:hint="Password"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/re_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="7dp"
+            android:background="@drawable/edit_text_round_gray_background"
+            android:layout_marginTop="7dp"
+            android:padding="12dp"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+            android:text="Forgot Password?"
+            android:layout_marginTop="7dp"/>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Login"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:background="#DF0404"
+            android:textColor="#FFFFFF"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginTop="17dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? \n Sign Up Here"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:textColor="@color/colorPrimary"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:visibility="invisible"/>
+
+</LinearLayout>
