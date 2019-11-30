@@ -5,13 +5,18 @@ import androidx.lifecycle.ViewModel
 import com.sgufakto.mvvmsample.data.repositories.UserRepository
 import com.sgufakto.mvvmsample.utils.ApiException
 import com.sgufakto.mvvmsample.utils.Coroutines
+import com.sgufakto.mvvmsample.utils.NoInternetException
 
-class AuthViewModel: ViewModel() {
+class AuthViewModel(
+    private val repository: UserRepository
+): ViewModel() {
 
     var email:String?=null
     var password: String?=null
 
     var listener: AuthListener?=null
+
+    fun getLoggedInUser() = repository.getUser()
 
     fun onLoginButtonClick(view: View){
         listener?.OnStarted()
@@ -24,16 +29,19 @@ class AuthViewModel: ViewModel() {
         // success
         Coroutines.main {
             try {
-                val authResponse = UserRepository().userLogin(email!!, password!!)
+                val authResponse = repository.userLogin(email!!, password!!)
 
                 authResponse.user?.let{
                     listener?.OnSuccess(it)
+                    repository.saveUser(it) // save to local database
                     return@main
                 }
 
                 listener?.OnError(authResponse.message!!)
 
             } catch (e: ApiException) {
+                listener?.OnError(e.message!!)
+            } catch (e: NoInternetException) {
                 listener?.OnError(e.message!!)
             }
 
